@@ -6,12 +6,13 @@ object ExtractPerson {
   def apply(person: String): Try[Person] = {
 
     person split ',' match {
-      case Array(name, gender, birthday) =>
+      case Array(nameString, genderString, birthdayString) =>
         for {
-          (firstName, lastName) <- extractName(name)
-          birthdayDate <- ExtractDate(birthday.trim)
+          (firstName, lastName) <- extractName(nameString.trim)
+          birthdayDate <- ExtractDate(birthdayString.trim)
+          gender <- ExtractGender(genderString.trim)
         } yield {
-          Person(firstName, lastName, gender.trim, birthdayDate)
+          Person(firstName, lastName, gender, birthdayDate)
         }
 
       case _ => Failure(new IllegalArgumentException(s"'$person' does not match the expected format"))
