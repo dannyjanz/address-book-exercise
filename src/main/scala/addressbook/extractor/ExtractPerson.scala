@@ -1,13 +1,16 @@
+package addressbook.extractor
+
+import addressbook.person.Person
 
 import scala.util.{Failure, Success, Try}
 
-object ExtractPerson {
+object ExtractPerson extends (String => Try[Person]) {
 
   def apply(person: String): Try[Person] = person split ',' match {
     case Array(nameString, genderString, birthdayString) =>
       for {
         (firstName, lastName) <- extractName(nameString.trim)
-        birthdayDate <- ExtractDate(birthdayString.trim)
+        birthdayDate <- ExtractShortYearDate(birthdayString.trim)
         gender <- ExtractGender(genderString.trim)
       } yield {
         Person(firstName, lastName, gender, birthdayDate)

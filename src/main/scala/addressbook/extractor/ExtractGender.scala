@@ -1,3 +1,7 @@
+package addressbook.extractor
+
+import addressbook.person.{Female, Gender, Male}
+
 import scala.util.{Failure, Success, Try}
 
 object ExtractGender {

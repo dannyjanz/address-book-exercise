@@ -1,10 +1,12 @@
+package addressbook.extractor
+
 import java.time.LocalDate
 import java.time.format.DateTimeFormatterBuilder
 import java.time.temporal.ChronoField
 
 import scala.util.Try
 
-object ExtractDate {
+object ExtractShortYearDate {
 
   private val twentiethCenturyParser = new DateTimeFormatterBuilder()
     .appendPattern("dd/MM/")

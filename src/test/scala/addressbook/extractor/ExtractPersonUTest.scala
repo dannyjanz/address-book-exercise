@@ -1,5 +1,8 @@
+package addressbook.extractor
+
 import java.time.LocalDate
 
+import addressbook.person.{Male, Person}
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.util.Success

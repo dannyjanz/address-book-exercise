@@ -1,3 +1,5 @@
+package addressbook.person
+
 sealed trait Gender {
   def name: String
 }

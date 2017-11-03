@@ -1,3 +1,6 @@
+package addressbook.extractor
+
+import addressbook.person.{Female, Male}
 import org.scalatest.{FlatSpec, Matchers}
 
 import scala.util.Success
